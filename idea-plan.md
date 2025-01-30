@@ -6,8 +6,7 @@ implement a crappy gacha game
 
 ## Purpose
 
-- practice making a server in python
-- practice with react
+Practice making a server in python, specifically django
 
 ## Project Overview
 ### MVP Version
@@ -32,6 +31,7 @@ Various features can be punted on during development cycle
 - Roll
 - List owned
 - List possible
+- View item details
 - Create account
 - See credit
 - Buy credits (not with real money lolol)
