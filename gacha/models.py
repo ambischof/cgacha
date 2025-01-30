@@ -17,7 +17,7 @@ class Item(models.Model):
   
   def get_random_item():
     rarityVal = rarity.get_random_rarity()
-    return Item.objects.filter(rarity=rarityVal).order_by('?')[:1]
+    return Item.objects.filter(rarity=rarityVal).order_by('?')[:1][0]
   
   def __str__(self):
     return self.name +' (' + str(self.rarity) + '★)'
