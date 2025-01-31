@@ -57,9 +57,9 @@ class AccountItemTests(TestCase):
     cls.items = make_items()
   
   def test_roll(self):
-    item = AccountItem.roll(self.user)
+    association = AccountItem.roll(self.user)
     self.assertEqual(self.user.credits, 99)
-    self.assertEqual(item, self.user.items.all()[0])
+    self.assertEqual(association.item, self.user.items.all()[0])
 
   def test_credit_check(self):
     with self.assertRaisesMessage(Exception, 'Not enough Credits'):

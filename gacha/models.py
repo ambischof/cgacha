@@ -1,9 +1,11 @@
 from django.db import models
+# from django.contrib.auth.models import User
 from .lib import rarity
+from django.db import transaction
 
 # winnable items
 class Item(models.Model):
-  name = models.CharField(max_length=30)
+  name = models.CharField(max_length=30, unique=True)
   
   # not sure how labels will work? documentation is scarce.
   class Rarities(models.IntegerChoices): 
@@ -24,40 +26,40 @@ class Item(models.Model):
     return self.name +' (' + str(self.rarity) + '★)'
 
 # the user account
+#TODO: make this into a proper authentication user model, 
+#      but punting on that because I don't want to deal with 
+#      logging in during development
 class Account(models.Model):
-  username = models.CharField(max_length=30, primary_key=True)
+  username = models.CharField(max_length=30, unique=True)
   # each user starts with 100 credits
   credits = models.IntegerField(default=100)
-  items = models.ManyToManyField(Item, through="AccountItem", through_fields=("username", "item"))
+  items = models.ManyToManyField(Item, through="AccountItem")
+
+  def __str__(self):
+    return self.username
 
 
 
 # relation between user and item
 class AccountItem(models.Model):
-  username = models.ForeignKey(Account, on_delete=models.CASCADE)
+  account = models.ForeignKey(Account, on_delete=models.CASCADE)
   item = models.ForeignKey(Item, on_delete=models.CASCADE)
   acquired = models.DateTimeField(auto_now_add=True)
   
   ''' the bread and butter of the app, trading credits for an item '''
   @staticmethod
-  def roll(account):
+  def roll(account: Account):
     if (account.credits < 1):
       raise Exception('Not enough Credits')
 
-    account.credits -= 1
-    account.save()
     item = Item.get_random_item()
-    try:
-      association = AccountItem(username=account, item=item)
-      association.save()
-    
-    #TODO: figure out transactions to make sure credits only are
-    # taken when roll is successful
-    except Exception as e:
-      account.credits += 1
+    with transaction.atomic():
+      account.credits -= 1
       account.save()
-      raise e
+      association = AccountItem(account=account, item=item)
+      association.save()
 
-    return item
+
+    return association
 
     
