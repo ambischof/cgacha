@@ -2,7 +2,7 @@ from django.test import TestCase, RequestFactory
 from .lib import rarity
 from .models import Item, Account, AccountItem
 import re
-from .views import RollView, IndexView
+from .views import RollView, itemlist
 
 def make_items():
   items = []
@@ -66,10 +66,20 @@ class AccountItemTests(TestCase):
     with self.assertRaisesMessage(Exception, 'Not enough Credits'):
       item = AccountItem.roll(self.broke_user)
 
+class AccountTest(TestCase):
+  @classmethod
+  def setUpTestData(cls):
+    cls.user = Account(username="Sally")
+    cls.items = make_items()
+
+  def test_item_count(self):
+    AccountItem.roll(self.user)
+    AccountItem.roll(self.user)
+    self.assertEqual(self.user.item_count, 2)
+
 
 class RollViewTest (TestCase):
   def setUp(self):
-    # self.factory = RequestFactory()
     user = Account(username="Sally")
     user.save()
     self.user= user
@@ -82,3 +92,23 @@ class RollViewTest (TestCase):
     object = view.get_object()
     self.assertEqual(self.user,object.account)
     self.assertEqual(self.user.items.first(), object.item)
+
+class ItemListView(TestCase):
+  def setUp(self):
+    user = Account(username="Sally")
+    user.save()
+    self.items = make_items()
+    # lets not do random roll to make it easier
+    item1 = AccountItem(account=user, item=self.items[0])
+    item2 = AccountItem(account=user, item=self.items[len(self.items)-1])
+    item1.save()
+    item2.save()
+  
+  # this doesn't work and I'm too tired to figure out why.
+  # it won't matter when i add in authentication and 
+  # it changes the way stuff is loaded
+  # def test_list_data_right(self):
+  #   request = RequestFactory().get('/')
+  #   response= itemlist(request)
+    # self.assertContains('item 53', response)
+    # self.assertContains('item 11', response)

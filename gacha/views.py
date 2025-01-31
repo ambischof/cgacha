@@ -1,5 +1,7 @@
+from django.shortcuts import render
 from django.views import generic
-from .models import Account, AccountItem
+from .models import Account, AccountItem, Item
+from django.http import Http404
 
 class IndexView(generic.DetailView):
   template_name = 'gacha/index.html'
@@ -16,4 +18,14 @@ class RollView(generic.DetailView):
     accountItem = AccountItem.roll(user)
     return accountItem
 
-
+#todo let user decide sortby
+def itemlist(request):
+  try:
+    account = Account.objects.first();
+  except Account.DoesNotExist:
+    raise Http404("account does not exist")
+  val = render(request, "gacha/itemlist.html", {
+    "account": account, 
+    "items": account.items.order_by('-rarity', 'name').all()
+  })
+  return val

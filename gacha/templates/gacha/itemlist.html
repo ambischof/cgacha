@@ -1,0 +1,7 @@
+<ul>
+{% for item in items %}
+  <li>{{item.name}} </li>
+{% empty %}
+  <li>Your list is empty, roll and get started!</li>
+{% endfor %}
+</ul>
