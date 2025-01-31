@@ -53,10 +53,10 @@ class AccountItem(models.Model):
       raise Exception('Not enough Credits')
 
     item = Item.get_random_item()
+    account.credits -= 1
+    association = AccountItem(account=account, item=item)
     with transaction.atomic():
-      account.credits -= 1
       account.save()
-      association = AccountItem(account=account, item=item)
       association.save()
 
 

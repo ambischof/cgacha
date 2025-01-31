@@ -10,3 +10,5 @@ Practice making a server in python, specifically django
 
 
 Not much here yet. See more details about what is planned in [idea-plan.md](./idea-plan.md)
+
+To set up the initial items and user, run `add_items.py`

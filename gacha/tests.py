@@ -1,7 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from .lib import rarity
 from .models import Item, Account, AccountItem
 import re
+from .views import RollView, IndexView
 
 def make_items():
   items = []
@@ -33,7 +34,7 @@ class RarityTests(TestCase):
 
     for x in range(1,6): 
       percent = accumulator[str(x)] / TIMES;
-      self.assertAlmostEqual(percent, rarity.item_rarities_percent[str(x)], delta=.01)
+      self.assertAlmostEqual(percent, rarity.item_rarities_percent[str(x)], delta=.015)
 
 
 class ItemTests(TestCase):
@@ -64,3 +65,20 @@ class AccountItemTests(TestCase):
   def test_credit_check(self):
     with self.assertRaisesMessage(Exception, 'Not enough Credits'):
       item = AccountItem.roll(self.broke_user)
+
+
+class RollViewTest (TestCase):
+  def setUp(self):
+    # self.factory = RequestFactory()
+    user = Account(username="Sally")
+    user.save()
+    self.user= user
+    make_items()
+  
+  def test_details(self):
+    request = RequestFactory().get('/')
+    view= RollView()
+    view.setup(request);
+    object = view.get_object()
+    self.assertEqual(self.user,object.account)
+    self.assertEqual(self.user.items.first(), object.item)

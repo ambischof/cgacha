@@ -1,0 +1,12 @@
+<nav>Hi, {{ account.username }} Credits: {{account.credits}} </nav>
+
+{% if account.credits > 1 %}
+<a href="/gacha/roll">Roll</a><br>
+Cost: 1 credit
+
+{% else %}
+Roll<br>
+Sorry, out of credits!<br>
+Get more, coming soon™
+{% endif %}
+
