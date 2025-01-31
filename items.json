@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Shy Star",
+    "rarity": 1
+  },
+  {
+    "name": "Girl Next Door Star",
+    "rarity": 1
+  },
+  {
+    "name": "Red Dwarf Star",
+    "rarity": 1
+  },
+  {
+    "name": "Wishing Star",
+    "rarity": 1
+  },
+  {
+    "name": "Binary Star",
+    "rarity": 1
+  },
+  {
+    "name": "Gold Star",
+    "rarity": 2
+  },
+  {
+    "name": "Falling Star",
+    "rarity": 2
+  },
+  {
+    "name": "Shining Star",
+    "rarity": 2
+  },
+  {
+    "name": "Super Cool Star",
+    "rarity": 3
+  },
+  {
+    "name": "Twinkling Star",
+    "rarity": 3
+  },
+  {
+    "name": "Shooting Star",
+    "rarity": 3
+  },
+  {
+    "name": "Celebrity Star",
+    "rarity": 4
+  },
+  {
+    "name": "Morning Star",
+    "rarity": 4
+  },
+  {
+    "name": "Polaris",
+    "rarity": 5
+  },
+  {
+    "name": "Betelgeuse",
+    "rarity": 5
+  }
+]
