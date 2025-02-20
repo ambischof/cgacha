@@ -30,20 +30,11 @@ class Item(models.Model):
   def __str__(self):
     return self.name +' (' + str(self.rarity) + '★)'
 
-# the user account
-#TODO: make this into a proper authentication user model, 
-#      but punting on that because I don't want to deal with 
-#      logging in during development
 class Account(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
   # each user starts with 100 credits
   credits = models.IntegerField(default=100)
   items = models.ManyToManyField(Item, through="AccountItem")
-
-  # for working in templates where fn calls are not allowed
-  @property
-  def item_count(self):
-    return self.items.count()
   
   def __str__(self):
     return self.user.username

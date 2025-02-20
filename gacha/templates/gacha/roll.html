@@ -1,3 +1,7 @@
+{% extends "gacha/base.html" %}
+{% block title %} Roll {% endblock %}
+{% block content %}
+
 <div>
   You got {{accountitem.item.name}} {{accountitem.item.rarity_display}}!!!
 </div>
@@ -7,3 +11,5 @@
   <a href="{% url 'gacha:roll' %}">Roll again</a>
   <a href="{% url 'gacha:index' %}">Go back</a>
 </div>
+
+{% endblock %}
