@@ -1,4 +1,5 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase, Client
+from django.contrib.auth.models import User
 from .lib import rarity
 from .models import Item, Account, AccountItem
 import re
@@ -53,56 +54,60 @@ class ItemTests(TestCase):
 class AccountItemTests(TestCase):
   @classmethod
   def setUpTestData(cls):
-    cls.user = Account(username="Sally")
-    cls.broke_user = Account(username="brokeJoe", credits=0)
+    user1 = User.objects.create_user(username="Sally")
+    cls.acct = Account.objects.create(user=user1)
+    user2 = User.objects.create_user(username="brokeJoe")
+    cls.broke_account = Account.objects.create(user=user2, credits=0)
     cls.items = make_items()
   
   def test_roll(self):
-    association = AccountItem.roll(self.user)
-    self.assertEqual(self.user.credits, 99)
-    self.assertEqual(association.item, self.user.items.all()[0])
+    association = AccountItem.roll(self.acct)
+    self.assertEqual(self.acct.credits, 99)
+    self.assertEqual(association.item, self.acct.items.all()[0])
 
   def test_credit_check(self):
     with self.assertRaisesMessage(Exception, 'Not enough Credits'):
-      item = AccountItem.roll(self.broke_user)
+      AccountItem.roll(self.broke_account)
 
 class AccountTest(TestCase):
   @classmethod
   def setUpTestData(cls):
-    cls.user = Account(username="Sally")
+    user = User.objects.create_user(username="Sally")
+    cls.acct = Account.objects.create(user=user)
     cls.items = make_items()
 
   def test_item_count(self):
-    AccountItem.roll(self.user)
-    AccountItem.roll(self.user)
-    self.assertEqual(self.user.item_count, 2)
+    AccountItem.roll(self.acct)
+    AccountItem.roll(self.acct)
+    self.assertEqual(self.acct.item_count, 2)
 
 
 class RollViewTest (TestCase):
   def setUp(self):
-    user = Account(username="Sally")
-    user.save()
-    self.user= user
+    user = User.objects.create_user(username="Sally")
+    account = Account.objects.create(user=user)
+    self.acct = account
+    self.user = user
     make_items()
   
   def test_details(self):
-    request = RequestFactory().get('/')
+    c = Client()
+    c.force_login(user=self.user)
+    request = c.get('/')
     view= RollView()
-    view.setup(request);
+    view.setup(request.wsgi_request)
     object = view.get_object()
-    self.assertEqual(self.user,object.account)
-    self.assertEqual(self.user.items.first(), object.item)
+    self.assertEqual(self.acct,object.account)
+    self.assertEqual(self.acct.items.first(), object.item)
 
 class ItemListView(TestCase):
   def setUp(self):
-    user = Account(username="Sally")
-    user.save()
+    user = User.objects.create_user(username="Sally")
+    account = Account.objects.create(user=user)
     self.items = make_items()
     # lets not do random roll to make it easier
-    item1 = AccountItem(account=user, item=self.items[0])
-    item2 = AccountItem(account=user, item=self.items[len(self.items)-1])
-    item1.save()
-    item2.save()
+    item1 = AccountItem.objects.create(account=account, item=self.items[0])
+    item2 = AccountItem.objects.create(account=account, item=self.items[len(self.items)-1])
   
   # this doesn't work and I'm too tired to figure out why.
   # it won't matter when i add in authentication and 

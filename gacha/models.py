@@ -1,7 +1,7 @@
 from django.db import models
-# from django.contrib.auth.models import User
-from .lib import rarity
+from django.contrib.auth.models import User
 from django.db import transaction
+from .lib import rarity
 
 # winnable items
 class Item(models.Model):
@@ -35,7 +35,7 @@ class Item(models.Model):
 #      but punting on that because I don't want to deal with 
 #      logging in during development
 class Account(models.Model):
-  username = models.CharField(max_length=30, unique=True)
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
   # each user starts with 100 credits
   credits = models.IntegerField(default=100)
   items = models.ManyToManyField(Item, through="AccountItem")
@@ -46,7 +46,7 @@ class Account(models.Model):
     return self.items.count()
   
   def __str__(self):
-    return self.username
+    return self.user.username
 
 
 
@@ -78,6 +78,6 @@ class AccountItem(models.Model):
     return association
   
   def __str__(self):
-    return self.account.username + ' has ' + str(self.item)
+    return self.account.user.username + ' has ' + str(self.item)
 
     

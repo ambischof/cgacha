@@ -1,4 +1,11 @@
-<nav>Hi, {{ account.username }} Credits: {{account.credits}} </nav>
+<nav>
+  Hi, {{ account.user.username }} 
+  Credits: {{account.credits}} 
+  <form method="post" action="{% url 'gacha:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Log out</button>
+  </form>
+</nav> 
 
 <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.item_count}} item(s)</a><p>
 

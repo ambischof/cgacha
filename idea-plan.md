@@ -39,7 +39,8 @@ Various features can be punted on during development cycle
 - ☐ Create account
 - ☑ See credit 
 - ☐ Buy credits (not with real money lolol)
-- ☐ Log in/Log out/password change etc
+- ☑ Log in/Log out
+- ☐ password change etc
 
 ### Database Shtuff
 
