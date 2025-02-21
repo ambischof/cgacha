@@ -1,15 +1,6 @@
-{% extends "./base.html" %}
+{% extends "gacha/base.html" %}
 {% block title %} Home {% endblock %}
 {% block content %}
-
-<nav>
-  Hi, {{ account.user.username }} 
-  Credits: {{account.credits}} 
-  <form method="post" action="{% url 'gacha:logout' %}">
-    {% csrf_token %}
-    <button type="submit">Log out</button>
-  </form>
-</nav> 
 
 <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a><p>
 

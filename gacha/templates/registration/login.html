@@ -1,3 +1,6 @@
+{% extends "gacha/html_base.html" %}
+{% block title %} login {% endblock %}
+{% block body_content %}
 {# This was mostly copy pasta'd from the docs... #}
 
 {% if form.errors %}
@@ -32,3 +35,4 @@
 
 {# Assumes you set up the password_reset view in your URLconf #}
 {% comment %} <p><a href="{% url 'gacha:password_reset' %}">Lost password?</a></p> {% endcomment %}
+{% endblock %}
