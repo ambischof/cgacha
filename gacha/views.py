@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django import forms
+from django.contrib.auth.models import User
 from .models import AccountItem
 
 class IndexView(LoginRequiredMixin, generic.DetailView):
@@ -28,3 +30,28 @@ def itemlist(request):
     "items": account.items.order_by('-rarity', 'name').all()
   })
   return val
+
+class RegisterForm(forms.ModelForm):
+  class Meta:
+    model = User
+    fields = ['username', 'password', 'email', 'first_name', 'last_name']
+    widgets ={
+      "password": forms.PasswordInput(),
+      "email": forms.EmailInput()
+    }
+
+def register(request):
+  if request.method == "POST":
+    form = RegisterForm(request.POST)
+    if (form.is_valid()):
+      form.save()
+      return redirect('gacha:login')
+  else:
+    form = RegisterForm()
+    context = {
+      "form": form, 
+      "title": 'Register', 
+      "action": "gacha:register"
+    }
+  return render (request, 'registration/form_wrapper.html', context)
+

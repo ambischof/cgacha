@@ -33,6 +33,7 @@
   <input type="hidden" name="next" value="{{ next }}">
 </form>
 
+<p><a href="{% url 'gacha:register' %}">Don't have an account?</a></p>
 {# Assumes you set up the password_reset view in your URLconf #}
 {% comment %} <p><a href="{% url 'gacha:password_reset' %}">Lost password?</a></p> {% endcomment %}
 {% endblock %}

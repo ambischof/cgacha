@@ -1,0 +1,10 @@
+{% extends "gacha/html_base.html" %}
+{% block title %} {{title}} {% endblock %}
+{% block body_content %}
+
+<form method="post" action="{% url action %}">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}
