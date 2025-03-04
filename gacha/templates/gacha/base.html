@@ -1,13 +1,18 @@
 {% extends "gacha/html_base.html" %}
 {% block body_content %}
-<nav>
-  <strong><a href="{% url 'gacha:index' %}">Gacha</a></strong>
-  Hi, {{ user.username }} 
-  Credits: {{ user.account.credits }} 
-  <form method="post" action="{% url 'gacha:logout' %}" style="display:inline-block">
-    {% csrf_token %}
-    <button type="submit">Log out</button>
-  </form>
-</nav>  
+<nav class="navbar navbar-expand-md bg-body-tertiary mb-md-3">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="{% url 'gacha:index' %}">Gacha</a>
+    <div class="navbar-text">Hi, {{ user.username }}</div> 
+    <div class="navbar-text">Credits: {{ user.account.credits }} </div>
+    <form class="d-flex" method="post" action="{% url 'gacha:logout' %}">
+      {% csrf_token %}
+      <button class="btn btn-outline-secondary" type="submit">Log out</button>
+    </form>
+  </div>
+</nav> 
+<div class="container-md">
 {% block content %}{% endblock %}
+</div>
 {% endblock %}

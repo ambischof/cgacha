@@ -2,12 +2,22 @@
 {% block title %} Your Items {% endblock %}
 {% block content %}
 
-<ul>
+<div class="row">
 {% for item in items %}
-  <li>{{item.name}} </li>
+
+  <div class="col-sm-3 mb-1">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{item.name}} <small>{{item.get_rarity_display}}</small>
+        </h5>
+        {% comment %} <img> {% endcomment %}
+      </div>
+    </div>
+  </div>
 {% empty %}
-  <li>Your list is empty, roll and get started!</li>
+<p>Your list is empty, roll and get started!</p>
 {% endfor %}
-</ul>
+</div>
 
 {% endblock %}

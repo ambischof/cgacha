@@ -10,7 +10,7 @@ This document is the planning for _before_ implementing and is likely to be inna
 
 Practice making a server in python, specifically django
 Brush up on AWS Deployment
-Tailwind practice
+~~Tailwind practice~~ On second thought, Tailwind is overkill for this project. Using Bootstrap.
 
 ## Project Overview
 ### MVP Version
