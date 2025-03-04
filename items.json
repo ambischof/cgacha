@@ -1,62 +1,77 @@
 [
   {
     "name": "Shy Star",
+    "flavor": "The star equivalent of melting into the floor is becoming a black hole, and she's dangerously close",
     "rarity": 1
   },
   {
     "name": "Girl Next Door Star",
+    "flavor": "She's liked you since the 4th grade",
     "rarity": 1
   },
   {
     "name": "Red Dwarf Star",
+    "flavor": "He can't be seen with the naked eye, but even he can see why kids love Cinnamon Toast Crunch",
     "rarity": 1
   },
   {
     "name": "Wishing Star",
+    "flavor": "Accredited by Monkey Paw University",
     "rarity": 1
   },
   {
     "name": "Binary Star",
+    "flavor": "We've been together without a single fight for 5.3 billion years",
     "rarity": 1
   },
   {
     "name": "Gold Star",
+    "flavor": "Shines light of approval on you",
     "rarity": 2
   },
   {
     "name": "Falling Star",
+    "flavor": "I was wondering why the star was getting bigger, then it hit me",
     "rarity": 2
   },
   {
     "name": "Shining Star",
+    "flavor": "Positively beaming",
     "rarity": 2
   },
   {
     "name": "Super Cool Star",
+    "flavor": "Planets in other solar systems want to orbit him",
     "rarity": 3
   },
   {
     "name": "Twinkling Star",
+    "flavor": "Twinkle Twinkle Little Bat, How I wonder where you're at?",
     "rarity": 3
   },
   {
     "name": "Shooting Star",
+    "flavor": "Burning through the sky, yeah. Twenty thousand degrees, that's why they call me Mr Fahrenheit!",
     "rarity": 3
   },
   {
     "name": "Celebrity Star",
+    "flavor": "No Autographs, please",
     "rarity": 4
   },
   {
     "name": "Morning Star",
+    "flavor": "Shh, don't tell him",
     "rarity": 4
   },
   {
     "name": "Polaris",
+    "flavor": "You now know where north is, but you don't know how to read a map...",
     "rarity": 5
   },
   {
     "name": "Betelgeuse",
+    "flavor": "...Betelgeuse Betelgeuse",
     "rarity": 5
   }
 ]
