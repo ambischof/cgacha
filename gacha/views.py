@@ -3,6 +3,7 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
+from django.db.models import Count
 from django.contrib.auth.models import User
 from .models import AccountItem
 
@@ -35,9 +36,10 @@ class TestRollView(LoginRequiredMixin, generic.DetailView):
 @login_required
 def itemlist(request):
   account = request.user.account
+  items = account.items.values().annotate(total=Count('pk')).order_by('total');
   val = render(request, "gacha/itemlist.html", {
     "account": account, 
-    "items": account.items.order_by('-rarity', 'name').all()
+    "items": items.order_by('-rarity', 'name').all()
   })
   return val
 

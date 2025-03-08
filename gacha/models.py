@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.functions import Concat
 from django.db import transaction
 from .lib import rarity
 
@@ -16,11 +17,12 @@ class Item(models.Model):
     FIVE = 5, '★★★★★'
 
   rarity = models.IntegerField(choices=Rarities, default=1)
-
-  # for working in templates where fn calls are not allowed
-  @property
-  def rarity_display(self):
-    return self.get_rarity_display()
+  
+  rarity_display = models.GeneratedField(
+    expression= Concat(models.Value('('), 'rarity', models.Value('★)')),
+    output_field=models.CharField(max_length=30),
+    db_persist=False
+  )
   
   @staticmethod
   def get_random_item():
@@ -28,7 +30,7 @@ class Item(models.Model):
     return Item.objects.filter(rarity=rarityVal).order_by('?')[:1][0]
   
   def __str__(self):
-    return self.name +' (' + str(self.rarity) + '★)'
+    return self.name +' ' + self.rarity_display
 
 class Account(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
