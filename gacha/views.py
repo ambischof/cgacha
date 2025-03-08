@@ -20,6 +20,16 @@ class RollView(LoginRequiredMixin, generic.DetailView):
     user = self.request.user.account
     accountItem = AccountItem.roll(user)
     return accountItem
+  
+# to view the roll page without changing state
+# Disable in production
+class TestRollView(LoginRequiredMixin, generic.DetailView):
+  model = AccountItem
+  template_name = 'gacha/roll.html'
+  def get_object(self):
+    user = self.request.user.account
+    item = user.items.first()
+    return AccountItem(account=user, item=item)
 
 #todo let user decide sortby
 @login_required

@@ -1,18 +1,28 @@
 {% extends "gacha/html_base.html" %}
 {% block body_content %}
-<nav class="navbar navbar-expand-md bg-body-tertiary mb-md-3">
+<nav class="navbar navbar-expand-sm bg-body-tertiary mb-md-3">
   <div class="container-fluid">
-
-    <a class="navbar-brand" href="{% url 'gacha:index' %}">Gacha</a>
-    <div class="navbar-text">Hi, {{ user.username }}</div> 
-    <div class="navbar-text">Credits: {{ user.account.credits }} </div>
-    <form class="d-flex" method="post" action="{% url 'gacha:logout' %}">
-      {% csrf_token %}
-      <button class="btn btn-outline-secondary" type="submit">Log out</button>
-    </form>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#navbarToggler" aria-controls="navbarToggler" 
+        aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <a class="navbar-brand" href="{% url 'gacha:index' %}">Gacha</a>
+      <div class="navbar-text ms-auto me-3"> 
+        {{ user.account.credits }} {% include "gacha/star_credit.html"%}
+      </div>
+      <div class="navbar-text me-3">Hi, {{ user.username }}</div> 
+      <form class="d-flex " role="search" method="post" action="{% url 'gacha:logout' %}">
+        {% csrf_token %}
+        <button class="btn btn-outline-primary" type="submit">Log out</button>
+      </form>
+    </div>
   </div>
 </nav> 
-<div class="container-md">
+
+<div id="main-container" class="container-md h-100 overflow-auto">
 {% block content %}{% endblock %}
 </div>
 {% endblock %}

@@ -1,15 +1,17 @@
 {% extends "gacha/base.html" %}
 {% block title %} Roll {% endblock %}
 {% block content %}
-
-<div>
+<div class="mx-auto item-display text-center">
+  <div class="card">
+    <img src="https://i.imghippo.com/files/oaVD6303Nqg.webp" alt="Image coming soon&trade;">
+  </div>
   You got {{accountitem.item.name}} {{accountitem.item.rarity_display}}!!!
 </div>
 
-<div>
-  <a href="{% url 'gacha:itemlist' %}">See your items</a>
-  <a href="{% url 'gacha:roll' %}">Roll again</a>
-  <a href="{% url 'gacha:index' %}">Go back</a>
+<div class="mx-auto text-center mt-3">
+  <a class="btn btn-outline-primary" href="{% url 'gacha:index' %}">Go back</a>
+  <a class="btn btn-outline-primary" href="{% url 'gacha:roll' %}">Roll again</a>
+  <a class="btn btn-outline-primary" href="{% url 'gacha:itemlist' %}">See your items</a>
 </div>
-
+</div>
 {% endblock %}

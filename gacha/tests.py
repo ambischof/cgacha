@@ -79,7 +79,7 @@ class AccountTest(TestCase):
   def test_item_count(self):
     AccountItem.roll(self.acct)
     AccountItem.roll(self.acct)
-    self.assertEqual(self.acct.item_count, 2)
+    self.assertEqual(self.acct.items.count(), 2)
 
 
 class RollViewTest (TestCase):

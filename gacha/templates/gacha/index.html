@@ -1,17 +1,17 @@
 {% extends "gacha/base.html" %}
 {% block title %} Home {% endblock %}
 {% block content %}
+<div class="text-center">
+  <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a><p>
 
-<p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a><p>
+  {% if account.credits > 1 %}
+  <a class="btn btn-outline-primary" href="{%url 'gacha:roll'%}">Roll</a><br>
+  Cost: 1 {% include "gacha/star_credit.html"%}
 
-{% if account.credits > 1 %}
-<a href="{%url 'gacha:roll'%}">Roll</a><br>
-Cost: 1 credit
-
-{% else %}
-Roll<br>
-Sorry, out of credits!<br>
-Get more, coming soon™
-{% endif %}
-
+  {% else %}
+  Roll<br>
+  Sorry, out of credits!<br>
+  Get more, coming soon™
+  {% endif %}
+</div>
 {% endblock %}

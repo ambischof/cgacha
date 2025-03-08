@@ -2,10 +2,10 @@
 {% block title %} Your Items {% endblock %}
 {% block content %}
 
-<div class="row">
+<div id="itemlist" class="row justify-content-center">
 {% for item in items %}
 
-  <div class="col-sm-3 mb-1">
+  <div class="item-card col-md-3 col-sm-4 mb-1">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">

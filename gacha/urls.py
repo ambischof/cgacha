@@ -5,6 +5,7 @@ app_name = "gacha"
 urlpatterns = [
   path("", views.IndexView.as_view(), name="index" ),
   path("roll", views.RollView.as_view(), name="roll"),
+  path("testroll", views.TestRollView.as_view(), name="testroll"),
   path("itemlist", views.itemlist, name="itemlist"),
   path("accounts/register", views.register, name="register"),
   # many of these views are currently unimplemented

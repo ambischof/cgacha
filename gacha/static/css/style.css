@@ -1,3 +1,16 @@
 body {
   background-image: url("../images/star_pattern.svg")
 }
+
+.item-display img {
+  max-height: 30rem;
+  max-width: 30rem;
+}
+
+.item-display {
+  max-width: 30rem;
+}
+
+#itemlist .item-card {
+  min-width: 15rem;
+}
