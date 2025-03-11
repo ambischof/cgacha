@@ -36,7 +36,7 @@ Various features can be punted on during development cycle
 - ☑ List owned 
 - ☐ List possible
 - ☐ View item details
-- ☐ Create account
+- ☑ Create account
 - ☑ See credit 
 - ☐ Buy credits (not with real money lolol)
 - ☑ Log in/Log out
@@ -73,9 +73,11 @@ Percentages:
 
 Eventually could include items and images. That would be less of a "crappy" gacha though.
 
+(EDIT: it's me, of __course__ images were made lol)
+
 ### UI
 Possibilities: 
 
-- command line
-- html (browser)
-- discord
+- command line *(nope)*
+- html (browser) *(yes)*
+- discord *(unlikely)*
