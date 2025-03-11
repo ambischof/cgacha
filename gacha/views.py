@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
 from django.db.models import Count
 from django.contrib.auth.models import User
-from .models import AccountItem
+from .models import AccountItem, Item
 
 class IndexView(LoginRequiredMixin, generic.DetailView):
   template_name = 'gacha/index.html'
@@ -42,6 +42,12 @@ def itemlist(request):
     "items": items.order_by('-rarity', 'name').all()
   })
   return val
+
+class AllItemList(generic.ListView):
+  class Meta:
+    model = Item
+  queryset = Item.objects.order_by('rarity')
+  template_name = "gacha/all_item_list.html"
 
 class RegisterForm(forms.ModelForm):
   class Meta:

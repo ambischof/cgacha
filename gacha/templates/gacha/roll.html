@@ -3,7 +3,7 @@
 {% block content %}
 <div class="mx-auto item-display text-center">
   <div class="card">
-    <img src="https://i.imghippo.com/files/oaVD6303Nqg.webp" alt="Image coming soon&trade;">
+    <img src="{{accountitem.item.img_url}}" alt="{{accountitem.item.name}}">
   </div>
   You got {{accountitem.item.name}} {{accountitem.item.rarity_display}}!!!
 </div>
@@ -12,6 +12,5 @@
   <a class="btn btn-outline-primary" href="{% url 'gacha:index' %}">Go back</a>
   <a class="btn btn-outline-primary" href="{% url 'gacha:roll' %}">Roll again</a>
   <a class="btn btn-outline-primary" href="{% url 'gacha:itemlist' %}">See your items</a>
-</div>
 </div>
 {% endblock %}

@@ -7,6 +7,8 @@ urlpatterns = [
   path("roll", views.RollView.as_view(), name="roll"),
   path("testroll", views.TestRollView.as_view(), name="testroll"),
   path("itemlist", views.itemlist, name="itemlist"),
+  path("allitems", views.AllItemList.as_view(), name="allitemslist"),
+
   path("accounts/register", views.register, name="register"),
   # many of these views are currently unimplemented
   #TODO: implement more views only views that are used

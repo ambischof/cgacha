@@ -2,76 +2,91 @@
   {
     "name": "Shy Star",
     "flavor": "The star equivalent of melting into the floor is becoming a black hole, and she's dangerously close",
-    "rarity": 1
+    "rarity": 1,
+    "img": "https://i.imghippo.com/files/ioCJ6029tIo.png"
   },
   {
     "name": "Girl Next Door Star",
     "flavor": "She's liked you since the 4th grade",
-    "rarity": 1
+    "rarity": 1,
+    "img": "https://i.imghippo.com/files/MtF7956qU.png"
   },
   {
     "name": "Red Dwarf Star",
     "flavor": "He can't be seen with the naked eye, but even he can see why kids love Cinnamon Toast Crunch",
-    "rarity": 1
+    "rarity": 1,
+    "img": "https://i.imghippo.com/files/XZQ7098ioE.png"
   },
   {
     "name": "Wishing Star",
     "flavor": "Accredited by Monkey Paw University",
-    "rarity": 1
+    "rarity": 1,
+    "img": "https://i.imghippo.com/files/Fbl5110Ggw.png"
   },
   {
     "name": "Binary Star",
     "flavor": "We've been together without a single fight for 5.3 billion years",
-    "rarity": 1
+    "rarity": 1,
+    "img": "https://i.imghippo.com/files/KzZ5488.png"
   },
   {
     "name": "Gold Star",
     "flavor": "Shines light of approval on you",
-    "rarity": 2
+    "rarity": 2,
+    "img": "https://i.imghippo.com/files/QxLM5485E.png"
   },
   {
     "name": "Falling Star",
     "flavor": "I was wondering why the star was getting bigger, then it hit me",
-    "rarity": 2
+    "rarity": 2,
+    "img": "https://i.imghippo.com/files/eewk6540exk.png"
   },
   {
     "name": "Shining Star",
     "flavor": "Positively beaming",
-    "rarity": 2
+    "rarity": 2,
+    "img": "https://i.imghippo.com/files/gnn7950hTc.png"
   },
   {
     "name": "Super Cool Star",
     "flavor": "Planets in other solar systems want to orbit him",
-    "rarity": 3
+    "rarity": 3,
+    "img": "https://i.imghippo.com/files/Ilc5084VU.png"
   },
   {
     "name": "Twinkling Star",
     "flavor": "Twinkle Twinkle Little Bat, How I wonder where you're at?",
-    "rarity": 3
+    "rarity": 3,
+    "img": "https://i.imghippo.com/files/Wh9196DWU.png"
   },
   {
     "name": "Shooting Star",
-    "flavor": "Burning through the sky, yeah. Twenty thousand degrees, that's why they call me Mr Fahrenheit!",
-    "rarity": 3
+    "flavor": "Burning through the sky, yeah. Twenty thousand degrees, that's why they call me Mr. Fahrenheit!",
+    "rarity": 3,
+    "img": "https://i.imghippo.com/files/pN8443RJ.png"
   },
   {
     "name": "Celebrity Star",
     "flavor": "No Autographs, please",
-    "rarity": 4
+    "rarity": 4,
+    "img": "https://i.imghippo.com/files/EZ6994CSg.png"
   },
   {
     "name": "Morning Star",
     "flavor": "Shh, don't tell him",
-    "rarity": 4
+    "rarity": 4,
+    "img": "https://i.imghippo.com/files/yNk6252pg.png"
   },
   {
     "name": "Polaris",
     "flavor": "You now know where north is, but you don't know how to read a map...",
-    "rarity": 5
+    "rarity": 5,
+    "img": "https://i.imghippo.com/files/SJm5956Xyw.png"
   },
   {
     "name": "Betelgeuse",
     "flavor": "...Betelgeuse Betelgeuse",
-    "rarity": 5
+    "rarity": 5,
+    "img": "https://i.imghippo.com/files/Otk3482xXU.png"
   }
 ]

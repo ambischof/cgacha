@@ -1,0 +1,28 @@
+{% extends "gacha/base.html" %}
+{% block title %} All Available Items {% endblock %}
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Rarity</th>
+      <th>Flavor Text</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in item_list %}
+    <tr>
+      <td><img src="{{item.img_url}}" class="list-table-img" alt="{{item.name}}"></td>
+      <td>{{item.name}}</td>
+      <td>{{item.rarity_display}}</td>
+      <td>{{item.flavor_text}}</td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="4">No items defined</td></tr>
+{% endfor %} 
+
+</table>
+
+{% endblock %}

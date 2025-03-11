@@ -7,6 +7,8 @@ from .lib import rarity
 # winnable items
 class Item(models.Model):
   name = models.CharField(max_length=30, unique=True)
+  flavor_text = models.CharField(max_length=200, blank=True)
+  img_url = models.CharField(max_length=100, blank=True)
   
   # not sure how labels will work? documentation is scarce.
   class Rarities(models.IntegerChoices): 

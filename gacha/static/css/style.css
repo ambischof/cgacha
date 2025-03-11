@@ -14,3 +14,23 @@ body {
 #itemlist .item-card {
   min-width: 15rem;
 }
+
+#itemlist .img-container {
+  /* if image is too small, pad it */
+  min-height: 180px;
+}
+
+#itemlist img {
+  /* should be no more than this high */
+  max-height: 180px;
+  /* this prevents it from chainging aspect ratio */
+  width: fit-content;
+  /* prevents it from spilling out of container */
+  max-width: 100%;
+}
+
+/* for all item list, just to control image size */
+.list-table-img {
+  max-height: 13rem;
+  max-width: 13rem;
+}
