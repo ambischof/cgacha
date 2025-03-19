@@ -155,10 +155,17 @@ STORAGES = {
 
 LOGGING = {
     "version": 1,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        }
+    },
     "handlers": {
         "console": {
             "level": "INFO",
-            "class": "logging.StreamHandler"
+            "class": "logging.StreamHandler",
+            "formatter": "verbose"
         }
     }
 }
