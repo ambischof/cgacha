@@ -161,11 +161,17 @@ LOGGING = {
             "style": "{",
         }
     },
+    
+    "disable_existing_loggers": False,
     "handlers": {
         "console": {
             "level": "INFO",
             "class": "logging.StreamHandler",
             "formatter": "verbose"
         }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG'
     }
 }
