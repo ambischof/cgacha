@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
 from django.db.models import Count
 from django.contrib.auth.models import User
-from .models import AccountItem, Item
+from .models import AccountItem, Item, Account
 
 class IndexView(LoginRequiredMixin, generic.DetailView):
   template_name = 'gacha/index.html'
@@ -62,7 +62,13 @@ def register(request):
   if request.method == "POST":
     form = RegisterForm(request.POST)
     if (form.is_valid()):
-      form.save()
+      # create the user but don't save it to the database
+      # because it won't save the password right.
+      user = form.save(commit=False)
+      user.set_password(form.data['password'])
+      user.save()
+      # create the associated account too
+      Account.objects.create(user=user)
       return redirect('gacha:login')
     else:
       context = {
