@@ -8,9 +8,9 @@ This document is the planning for _before_ implementing and is likely to be inna
 
 ## Purpose
 
-Practice making a server in python, specifically django
-Brush up on AWS Deployment
-~~Tailwind practice~~ On second thought, Tailwind is overkill for this project. Using Bootstrap.
+ - Practice making a server in python, specifically django
+ - ~~Brush up on AWS Deployment~~ NOPE this is NOT cost effective on a personal level. Finding alternative hosting
+ - ~~Tailwind practice~~ On second thought, Tailwind is overkill for this project. Using Bootstrap.
 
 ## Project Overview
 ### MVP Version

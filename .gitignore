@@ -5,3 +5,8 @@ db.sqlite3
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+.env
+# virtual env stuff
+pyvenv.cfg
+Lib/*
+Scripts/*

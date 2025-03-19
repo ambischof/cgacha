@@ -21,9 +21,9 @@ class Item(models.Model):
   rarity = models.IntegerField(choices=Rarities, default=1)
   
   rarity_display = models.GeneratedField(
-    expression= Concat(models.Value('('), 'rarity', models.Value('★)')),
+    expression= Concat(models.Value('('), models.functions.Cast('rarity', models.CharField()), models.Value('★)')),
     output_field=models.CharField(max_length=30),
-    db_persist=False
+    db_persist=True
   )
   
   @staticmethod
