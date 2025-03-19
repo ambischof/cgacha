@@ -34,11 +34,11 @@ Various features can be punted on during development cycle
 
 - ☑ Roll 
 - ☑ List owned 
-- ☐ List possible
+- ☐ List possible (done but not exposed)
 - ☐ View item details
-- ☑ Create account
 - ☑ See credit 
 - ☐ Buy credits (not with real money lolol)
+- ☑ Create account
 - ☑ Log in/Log out
 - ☐ password change etc
 
@@ -81,3 +81,12 @@ Possibilities:
 - command line *(nope)*
 - html (browser) *(yes)*
 - discord *(unlikely)*
+
+
+## todo 
+Since i'm currently not using a more formal tracking system. (`!!!` indicates priority)
+
+- ☐ Add about page !!!
+- ☐ make more mobile friendly !!!
+- ☐ add crispy for bootstrap form themes !
+- ☐ make sure all images are square (and same size)? so image sizes can be specified in html !!!
