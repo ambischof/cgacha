@@ -54,6 +54,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+os.environ.setdefault("CSRF_TRUSTED_ORIGIN", '')
+trusted_orig = os.environ['CSRF_TRUSTED_ORIGIN']
+CSRF_TRUSTED_ORIGINS = [trusted_orig] if len(trusted_orig) else []
+
 ROOT_URLCONF = 'server.urls'
 
 TEMPLATES = [
