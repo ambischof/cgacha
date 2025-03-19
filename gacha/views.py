@@ -64,6 +64,12 @@ def register(request):
     if (form.is_valid()):
       form.save()
       return redirect('gacha:login')
+    else:
+      context = {
+        "form": form, 
+        "title": 'Register', 
+        "action": "gacha:register"
+    }
   else:
     form = RegisterForm()
     context = {
