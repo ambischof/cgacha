@@ -3,7 +3,11 @@
 {% block content %}
 <div class="mx-auto item-display text-center">
   <div class="card">
-    <img src="{{accountitem.item.img_url}}" alt="{{accountitem.item.name}}">
+    <img 
+      class="item-img"
+      src="{{accountitem.item.img_url}}" 
+      alt="{{accountitem.item.name}}" 
+      width="500" height="500">
   </div>
   You got {{accountitem.item.name}} {{accountitem.item.rarity_display}}!!!
 </div>
