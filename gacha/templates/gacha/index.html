@@ -2,7 +2,7 @@
 {% block title %} Home {% endblock %}
 {% block content %}
 <div class="text-center">
-  <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a><p>
+  <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a></p>
 
   {% if account.credits > 1 %}
   <a class="btn btn-outline-primary" href="{%url 'gacha:roll'%}">Roll</a><br>
@@ -11,7 +11,10 @@
   {% else %}
   Roll<br>
   Sorry, out of credits!<br>
-  Get more, coming soon™
+  <a class="btn btn-outline-primary" href="{%url 'gacha:addcredits'%}">
+    Get more credits
+  </a> 
+  Only <s>$100</s> <strong>FREE!!</strong> Hurry, before we set up paypal!
   {% endif %}
 </div>
 {% endblock %}

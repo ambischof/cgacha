@@ -43,6 +43,14 @@ def itemlist(request):
   })
   return val
 
+# Action only, do action and redirect
+@login_required
+def addcredits(request):
+  account = request.user.account
+  account.credits += 100
+  account.save()
+  return redirect("gacha:index")
+
 class AllItemList(generic.ListView):
   class Meta:
     model = Item

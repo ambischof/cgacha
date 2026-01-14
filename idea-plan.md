@@ -37,7 +37,7 @@ Various features can be punted on during development cycle
 - ☐ List possible (done but not exposed)
 - ☐ View item details
 - ☑ See credit 
-- ☐ Buy credits (not with real money lolol)
+- ☑ Buy credits (not with real money lolol)
 - ☑ Create account
 - ☑ Log in/Log out
 - ☐ password change etc
