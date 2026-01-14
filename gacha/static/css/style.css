@@ -2,13 +2,14 @@ body {
   background-image: url("../images/star_pattern.svg")
 }
 
-.item-display img {
-  max-height: 30rem;
-  max-width: 30rem;
+.item-img {
+  /* not all are exactly 1:1 aspect ratio becase I am stupid 
+     so crop off a little white space if necessary */
+  object-fit: cover;
 }
 
 .item-display {
-  max-width: 30rem;
+  max-width: 500px;
 }
 
 #itemlist .item-card {
@@ -21,16 +22,8 @@ body {
 }
 
 #itemlist img {
-  /* should be no more than this high */
-  max-height: 180px;
   /* this prevents it from chainging aspect ratio */
   width: fit-content;
   /* prevents it from spilling out of container */
   max-width: 100%;
-}
-
-/* for all item list, just to control image size */
-.list-table-img {
-  max-height: 13rem;
-  max-width: 13rem;
 }

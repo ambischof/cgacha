@@ -14,7 +14,14 @@
   <tbody>
   {% for item in item_list %}
     <tr>
-      <td><img src="{{item.img_url}}" class="list-table-img" alt="{{item.name}}"></td>
+      <td>
+        <img 
+          src="{{item.img_url}}" 
+          class="item-img list-table-img" 
+          alt="{{item.name}}"
+          height="200"
+          width="200">
+      </td>
       <td>{{item.name}}</td>
       <td>{{item.rarity_display}}</td>
       <td>{{item.flavor_text}}</td>
