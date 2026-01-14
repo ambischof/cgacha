@@ -4,7 +4,7 @@
 <div class="text-center">
   <p>You have <a href="{% url 'gacha:itemlist'%}">{{account.items.count}} item(s)</a></p>
 
-  {% if account.credits > 1 %}
+  {% if account.credits > 0 %}
   <a class="btn btn-outline-primary" href="{%url 'gacha:roll'%}">Roll</a><br>
   Cost: 1 {% include "gacha/star_credit.html"%}
 
@@ -13,7 +13,7 @@
   Sorry, out of credits!<br>
   <a class="btn btn-outline-primary" href="{%url 'gacha:addcredits'%}">
     Get more credits
-  </a> 
+  </a> <br>
   Only <s>$100</s> <strong>FREE!!</strong> Hurry, before we set up paypal!
   {% endif %}
 </div>

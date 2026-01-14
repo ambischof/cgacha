@@ -14,7 +14,11 @@
 
 <div class="mx-auto text-center mt-3">
   <a class="btn btn-outline-primary" href="{% url 'gacha:index' %}">Go back</a>
+  {% if account.credits > 0 %}
   <a class="btn btn-outline-primary" href="{% url 'gacha:roll' %}">Roll again</a>
+  {% else %}
+  <button class="btn btn-outline-primary" disabled title="Insufficient credits">Roll again</button>
+  {% endif %}
   <a class="btn btn-outline-primary" href="{% url 'gacha:itemlist' %}">See your items</a>
 </div>
 {% endblock %}
